@@ -14,6 +14,7 @@ export class AuthService {
     this.afAuth.authState.subscribe(res=>{
       if(res){
         localStorage.setItem("uid",res.uid)
+        this.router.navigateByUrl("/dashboard")
       }
       else{
         localStorage.removeItem("uid")
