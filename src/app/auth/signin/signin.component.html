@@ -20,9 +20,10 @@
                     </div> 
                 </div>
                 <div class="py-4">
-                    <button type="submit" [disabled]="!signinForm.valid" class="btn btn-submit shadow-sm text-decoration-none">Submit</button>
+                    <button type="submit" [disabled]="!signinForm.valid" class="btn btn-submit shadow-sm text-decoration-none">Sign In</button>
                 </div>
         </form>
+        <small class="form-text text-muted"> <a routerLink="/auth/forget-password">Forget Password</a></small>
             <small class="form-text text-muted">If you don't have an account <a routerLink="signup">Click
                     here</a></small>
         
