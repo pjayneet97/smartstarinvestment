@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { CommonService } from '../common.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(public afAuth:AngularFireAuth,public db:AngularFirestore,public router:Router) {
+  constructor(public afAuth:AngularFireAuth,public db:AngularFirestore,public router:Router,public common:CommonService) {
     this.afAuth.authState.subscribe(res=>{
       if(res){
         localStorage.setItem("uid",res.uid)
