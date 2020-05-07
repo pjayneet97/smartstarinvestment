@@ -26,6 +26,7 @@ export class AuthService {
        localStorage.setItem("uid",res.user.uid)
        return this.db.collection("users").doc(res.user.uid).set(Object.assign({},profileInfo)).then(res=>{
         this.router.navigateByUrl("/dashboard")
+        this.common.showToast("success","Successfull","Your Account is Successfully Created")
         return res
        })
      }).catch(err=>{
@@ -38,6 +39,7 @@ export class AuthService {
    signIn(email,password){
      return this.afAuth.signInWithEmailAndPassword(email,password).then(res=>{
       localStorage.setItem("uid",res.user.uid)
+      this.common.showToast("success","Successfull","You are LoggedIn successfully")
       this.router.navigateByUrl("/dashboard")
       return res.user.uid
      }).catch(err=>{
@@ -48,7 +50,10 @@ export class AuthService {
    }
 
    resetPassword(email){
-    return this.afAuth.sendPasswordResetEmail(email)
+    return this.afAuth.sendPasswordResetEmail(email).then(res=>{
+      this.router.navigateByUrl("/auth")
+      this.common.showToast("success","Reset link Send","Check your email for password reset link")
+    })
    }
 
    isAuthenticated(){
@@ -64,6 +69,10 @@ export class AuthService {
       localStorage.removeItem("uid")
       this.afAuth.signOut()
       window.location.reload()
+   }
+
+   getUid(){
+     return localStorage.getItem("uid")
    }
 
 
