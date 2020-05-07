@@ -23,7 +23,10 @@ export class AuthService {
    createAccount(cred:{email:string,password:string},profileInfo){
      return this.afAuth.createUserWithEmailAndPassword(cred.email,cred.password).then(res=>{
        localStorage.setItem("uid",res.user.uid)
-       return this.db.collection("users").doc(res.user.uid).set(Object.assign({},profileInfo))
+       return this.db.collection("users").doc(res.user.uid).set(Object.assign({},profileInfo)).then(res=>{
+        this.router.navigateByUrl("/dashboard")
+        return res
+       })
      }).catch(err=>{
        // code to generate a notification alert of wrong credentials
        alert(err)
@@ -34,6 +37,7 @@ export class AuthService {
    signIn(email,password){
      return this.afAuth.signInWithEmailAndPassword(email,password).then(res=>{
       localStorage.setItem("uid",res.user.uid)
+      this.router.navigateByUrl("/dashboard")
       return res.user.uid
      }).catch(err=>{
       // code to generate a notification alert of wrong credentials
