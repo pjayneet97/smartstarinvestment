@@ -13,7 +13,10 @@ import { ManagementPanelComponent } from './management-panel/management-panel.co
 import { PagesComponent } from './pages/pages.component';
 import { RiskCalculatorComponent } from './pages/risk-calculator/risk-calculator.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
