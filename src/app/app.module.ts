@@ -12,6 +12,7 @@ import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { ManagementPanelComponent } from './management-panel/management-panel.component';
 import { PagesComponent } from './pages/pages.component';
 import { RiskCalculatorComponent } from './pages/risk-calculator/risk-calculator.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RiskCalculatorComponent } from './pages/risk-calculator/risk-calculator
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

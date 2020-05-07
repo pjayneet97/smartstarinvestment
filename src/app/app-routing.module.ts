@@ -9,6 +9,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
 import { RiskCalculatorComponent } from './pages/risk-calculator/risk-calculator.component';
 import { ManagementPanelComponent } from './management-panel/management-panel.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const routes: Routes = [
@@ -22,7 +23,7 @@ const routes: Routes = [
     {path:"signup",component:SignupComponent},
     {path:"forget-password",component:ForgetPasswordComponent}
   ]},
-  {path:"dashboard",component:ManagementPanelComponent}
+  {path:"dashboard",component:ManagementPanelComponent,canActivate:[AuthGuardService]}
 ];
 
 @NgModule({

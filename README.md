@@ -2,6 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
 
+# Steps To add the project on local Machine
+
+Step 1 : clone the repository
+step 2 : Open the command promt inside the project directory
+step 3 : run command --> npm install
+
+# Steps To serve the project on local Machine
+
+step 1 : Open the command promt inside the project directory
+step 2 : run command --> ng serve
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
