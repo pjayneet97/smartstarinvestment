@@ -31,12 +31,13 @@ export class AuthService {
        })
      }).catch(err=>{
        // code to generate a notification alert of wrong credentials
-       alert(err)
+       this.common.showToast("error","Error",err)
        return err
      })
    }
 
    signIn(email,password){
+     console.log(email,password)
      return this.afAuth.signInWithEmailAndPassword(email,password).then(res=>{
       localStorage.setItem("uid",res.user.uid)
       this.common.showToast("success","Successfull","You are LoggedIn successfully")
@@ -44,7 +45,7 @@ export class AuthService {
       return res.user.uid
      }).catch(err=>{
       // code to generate a notification alert of wrong credentials
-      alert(err)
+      this.common.showToast("error","Error",err)
       return err
     })
    }

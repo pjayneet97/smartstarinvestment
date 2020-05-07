@@ -11,16 +11,16 @@ export class CommonService {
 
   showToast(type:string,title:string,message:string) {
     if(type=="success"){
-      this.toastr.success("message","message")
+      this.toastr.success(title,message)
     }
     if(type=="error"){
-      this.toastr.error("message","message")
+      this.toastr.error(title,message)
     }
     if(type=="info"){
-      this.toastr.info("message","message")
+      this.toastr.info(title,message)
     }
     if(type=="warning"){
-      this.toastr.warning("message","message")
+      this.toastr.warning(title,message)
     }
   }
 }

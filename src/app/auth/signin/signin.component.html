@@ -1,26 +1,28 @@
 <div class="jumbotron jumbotron-fluid bg-white border-0">
     <div class="container card bg-transparent border-0">
-        <div class="container center-text-div">
-            <h3 class="font-weight-normal heading">Sign In</h3>
-            <hr>
-        </div>
-        
-            <div class="form-row my-2">
-                <div class="col">
-                    <small class="form-text text-muted">Email Address</small>
-                    <input type="email" class="shadow-sm" placeholder="" [(ngModel)]="email">
-                    <small class="form-text text-danger">{{error}}</small>
+        <form (ngSubmit)="signin(signinForm)" #signinForm="ngForm">
+            <div class="container center-text-div">
+                <h3 class="font-weight-normal heading">Sign In</h3>
+                <hr>
+            </div>
+            
+                <div class="form-row my-2">
+                    <div class="col">
+                        <small class="form-text text-muted">Email Address</small>
+                        <input type="email" class="shadow-sm" placeholder="" name="email" ngModel required>
+                        <small class="form-text text-danger">{{error}}</small>
+                    </div>
                 </div>
-            </div>
-            <div class="form-row my-2">
-                <div class="col">
-                    <small id="passwordHelp" class="form-text text-muted">Password</small>
-                    <input type="password" class="shadow-sm" placeholder="" [(ngModel)]="password">
-                </div> 
-            </div>
-            <div class="py-4">
-                <button (click)="signin()" class="btn-submit shadow-sm text-decoration-none">Submit</button>
-            </div>
+                <div class="form-row my-2">
+                    <div class="col">
+                        <small id="passwordHelp" class="form-text text-muted">Password</small>
+                        <input type="password" class="shadow-sm" placeholder="" name="password" ngModel required>
+                    </div> 
+                </div>
+                <div class="py-4">
+                    <button type="submit" [disabled]="!signinForm.valid" class="btn btn-submit shadow-sm text-decoration-none">Submit</button>
+                </div>
+        </form>
             <small class="form-text text-muted">If you don't have an account <a routerLink="signup">Click
                     here</a></small>
         

@@ -29,7 +29,7 @@
         </ul>
 
         <span class="right-nav-buttons" *ngIf="isUser() else notUser">
-            <a routerLink='auth' class="btn btn-custom-primary btn-sm mx-1 px-4">Account</a>
+            <a (click)="logout()" class="btn btn-custom-primary btn-sm mx-1 px-4">Logout</a>
         </span>
 
         <ng-template #notUser>

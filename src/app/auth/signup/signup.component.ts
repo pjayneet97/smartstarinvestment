@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -18,16 +19,10 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signup() {
-    if(this.email==""){
-      this.error = "This filed is requied.";
-      this.isCreated=false;
-    }
-    else{
-      this.error = "";
-      this.authService.signIn(this.email, this.password);
-      this.isCreated=true;
-    }
+  signup(formData:NgForm) {
+    let cred={email:formData.value.email,password:formData.value.password}
+    let profileInfo={firstName:formData.value.firstName,lastName:formData.value.lastName,gender:formData.value.gender,mobile:formData.value.mobile}
+    this.authService.createAccount(cred,profileInfo)
   }
 
 }
