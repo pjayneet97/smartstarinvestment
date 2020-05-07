@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { NgxUiLoaderService } from 'ngx-ui-loader'; // Import NgxUiLoaderService
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
 
-  constructor(private toastr: ToastrService) { 
+  constructor(private toastr: ToastrService,private loader: NgxUiLoaderService) { 
     
   }
 
@@ -22,5 +23,11 @@ export class CommonService {
     if(type=="warning"){
       this.toastr.warning(title,message)
     }
+  }
+  showLoader(){
+    this.loader.start();
+  }
+  stopLoader(){
+    this.loader.stop()
   }
 }

@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { CommonService } from '../common.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +23,7 @@ export class AuthService {
    }
 
    createAccount(cred:{email:string,password:string},profileInfo){
+      this.common.showLoader()
      return this.afAuth.createUserWithEmailAndPassword(cred.email,cred.password).then(res=>{
        localStorage.setItem("uid",res.user.uid)
        return this.db.collection("users").doc(res.user.uid).set(Object.assign({},profileInfo)).then(res=>{
@@ -33,10 +35,13 @@ export class AuthService {
        // code to generate a notification alert of wrong credentials
        this.common.showToast("error","Error",err)
        return err
+     }).finally(()=>{
+      this.common.stopLoader()
      })
    }
 
    signIn(email,password){
+     this.common.showLoader()
      console.log(email,password)
      return this.afAuth.signInWithEmailAndPassword(email,password).then(res=>{
       localStorage.setItem("uid",res.user.uid)
@@ -47,13 +52,18 @@ export class AuthService {
       // code to generate a notification alert of wrong credentials
       this.common.showToast("error","Error",err)
       return err
+    }).finally(()=>{
+      this.common.stopLoader()
     })
    }
 
    resetPassword(email){
+    this.common.showLoader()
     return this.afAuth.sendPasswordResetEmail(email).then(res=>{
       this.router.navigateByUrl("/auth")
       this.common.showToast("success","Reset link Send","Check your email for password reset link")
+    }).finally(()=>{
+      this.common.stopLoader()
     })
    }
 
@@ -67,6 +77,7 @@ export class AuthService {
    }
 
    logOut(){
+      this.common.showLoader()
       localStorage.removeItem("uid")
       this.afAuth.signOut()
       window.location.reload()

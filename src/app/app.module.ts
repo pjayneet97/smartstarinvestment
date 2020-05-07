@@ -22,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { FooterComponent } from './pages/footer/footer.component';
     AngularFireAuthModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    FormsModule
+    FormsModule,
+    NgxUiLoaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
