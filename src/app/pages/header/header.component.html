@@ -1,0 +1,76 @@
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white px-3 border-bottom sticky-top">
+    <a class="navbar-brand" routerLink="">
+        <h5 class="font-weight-bold">Smart Star Investment</h5>
+    </a>
+    <button class="navbar-toggler toggle border-0" type="button" id="menu-toggle">
+        &#9776;
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Payments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Rafer a friend</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Buy/Sell</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="risk-calculator">Risk Calculator</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink='aboutus'>About Us</a>
+            </li>
+        </ul>
+
+        <span class="right-nav-buttons" *ngIf="isUser() else notUser">
+            <a routerLink='auth' class="btn btn-custom-primary btn-sm mx-1 px-4">Account</a>
+        </span>
+
+        <ng-template #notUser>
+            <span class="right-nav-buttons">
+                <a routerLink='auth' class="btn btn-custom-primary btn-sm mx-1 px-4">Sign In</a>
+                <a routerLink='auth/signup' class="btn btn-outline-custom-primary btn-sm mx-1 px-4">Sign Up</a>
+            </span>
+        </ng-template>
+
+    </div>
+</nav>
+<!-- Mobile view -->
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav navbar-nav">
+        <li *ngIf="isUser() else notUser">
+            <a routerLink='auth'><i class="fa fa-user mr-3"></i> Sign In</a>
+        </li>
+
+        <ng-template #notUser>
+            <li>
+                <a routerLink='dashboard'><i class="fa fa-user mr-3"></i> My Account</a>
+            </li>
+        </ng-template>
+
+
+        <li>
+            <a href="payments.html"><i class="fa fa-server mr-3"></i> Payments</a>
+        </li>
+        <li>
+            <a href="refer-a-friend.html"><i class="fa fa-table mr-3"></i> Rafer a friend</a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-bar-chart mr-3"></i> Buy/Sell</a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-bar-chart mr-3"></i> Risk Calculator</a>
+        </li>
+        <li>
+            <a href="about.html"><i class="fa fa-info mr-3"></i> About Us</a>
+        </li>
+    </ul>
+</div>
+<!-- End Mobile view -->
+<!-- Navbar End -->

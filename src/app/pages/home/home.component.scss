@@ -1,0 +1,255 @@
+.banner-home{
+    background-image: url("../../../assets/images/banner.png");
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+  }
+  .all-content-center{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .banner-heading{
+    color: #fff;
+  }
+  .banner-text {
+    color: #fff;
+  }
+  .cursor-pointer:hover{
+    cursor: pointer;
+  }
+  .shadow-hvr:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: none;
+  }
+  .icon-img{
+    width: 70px;
+    height: 70px;
+  }
+  .center-text-div{
+    line-height: 200px;
+    text-align: center;
+  }
+  .center-text-div h1, .center-text-div p{
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .custom-bg-primary{
+    background-color: #12003B;
+  }
+  .btn-banner-signin{
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 2em;
+    font-size: 20px;
+    text-decoration: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .btn-banner-signin:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #fff;
+  }
+
+//   section 3
+
+  /* The actual timeline (the vertical ruler) */
+  .timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  /* The actual timeline (the vertical ruler) */
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: rgb(214, 209, 209);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }
+  /* Container around content */
+  .timeline-container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+  }
+  /* The circles on the timeline */
+  .timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: white;
+    border: 4px solid #FF9F55;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  /* Place the container to the left */
+  .timeline-text-left {
+    left: 0;
+  }
+  /* Place the container to the right */
+  .timeline-text-right {
+    left: 50%;
+  }
+  /* Add arrows to the left container (pointing right) */
+  .timeline-text-left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+  }
+  /* Add arrows to the right container (pointing left) */
+  .timeline-text-right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+  /* Fix the circle for containers on the right side */
+  .timeline-text-right::after {
+    left: -16px;
+  }
+  /* The actual content */
+  .timeline-content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+  }
+  /* Media queries - Responsive timeline on screens less than 600px wide */
+  @media screen and (max-width: 600px) {
+    /* Place the timelime to the left */
+    .timeline::after {
+    left: 31px;
+    }
+    /* Full-width containers */
+    .timeline-container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+    }
+    /* Make sure that all arrows are pointing leftwards */
+    .timeline-container::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+    }
+    /* Make sure all circles are at the same spot */
+    .timeline-text-left::after, .timeline-text-right::after {
+    left: 15px;
+    }
+    /* Make all right containers behave like the left ones */
+    .timeline-text-right {
+    left: 0%;
+    }
+  }
+
+  /* carousel */
+.carousel-img{
+    width: 100%;
+    min-height: 50vh;
+  }
+  .carousel {
+      margin: 30px 0;
+      background: #ccc;
+  }
+  .carousel .item {
+      text-align: center;
+      overflow: hidden;
+      height: 475px;
+  }
+  .carousel .item img {
+      max-width: 100%;
+      margin: 0 auto; /* Align slide image horizontally center in Bootstrap v3 */
+  }
+  .carousel .carousel-control {
+      width: 50px;
+      height: 50px;
+      background: #000;
+      margin: auto 0;
+      opacity: 0.8;
+  }
+  .carousel .carousel-control:hover {
+      opacity: 0.9;
+  }
+  .carousel .carousel-control i {
+      font-size: 41px;
+      margin-top: 3px;
+  }
+  .carousel-caption h3, .carousel-caption p {
+      color: #fff;
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+      text-shadow: none;
+      margin-bottom: 20px;
+  }
+  .carousel-caption h3 {
+    background: #fff;
+    color: #12003B;
+      padding: 12px 24px;
+      font-size: 20px;	
+      text-transform: uppercase;
+  }
+  .carousel-caption p {
+    background: #fff;
+    color: #12003B;
+      padding: 10px 20px;
+      font-size: 15px;
+      font-weight: 300;
+  }
+  .carousel-indicators li, .carousel-indicators li.active {
+      margin-left: 4px;
+      margin-right: 4px;
+  }
+  .carousel-indicators li.active {
+      background: #12003B;
+      border-color: #12003B;
+  }
+  .carousel .nav {	
+      background: #eee;
+  }
+  .carousel .nav a {
+      color: #333;
+      border-radius: 0;
+      font-size: 85%;
+      padding: 10px 16px;
+      background: transparent;
+  }
+  .carousel .nav .nav-item.active a {
+      color: #fff;
+      background: #12003B;
+  }
+  .carousel .nav strong {
+      display: block;
+      font-family: 'Roboto', sans-serif;
+      font-size: 110%;
+      text-transform: uppercase;
+  }

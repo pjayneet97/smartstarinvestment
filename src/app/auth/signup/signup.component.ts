@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  email;
+  password;
+  error;
+  isCreated = false;
+
+  constructor( private authService: AuthService ) { }
 
   ngOnInit(): void {
+  }
+
+  signup() {
+    if(this.email==""){
+      this.error = "This filed is requied.";
+      this.isCreated=false;
+    }
+    else{
+      this.error = "";
+      this.authService.signIn(this.email, this.password);
+      this.isCreated=true;
+    }
   }
 
 }
