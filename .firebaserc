@@ -1,9 +1,9 @@
 {
   "targets": {
-    "demodigi-7f83e": {
+    "smartstarinvestments": {
       "hosting": {
         "investments": [
-          "demodigi-7f83e"
+          "smartstarinvestments"
         ]
       }
     }

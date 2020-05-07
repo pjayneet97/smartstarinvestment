@@ -2,16 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
 
+# Demo
+
+https://smartstarinvestments.web.app
+
 # Steps To add the project on local Machine
 
-Step 1 : clone the repository
-step 2 : Open the command promt inside the project directory
-step 3 : run command --> npm install
+Step 1 : clone the repository</br>
+step 2 : Open the command promt inside the project directory</br>
+step 3 : run command --> npm install</br>
 
 # Steps To serve the project on local Machine
 
-step 1 : Open the command promt inside the project directory
-step 2 : run command --> ng serve
+step 1 : Open the command promt inside the project directory</br>
+step 2 : run command --> ng serve</br>
 
 ## Development server
 
