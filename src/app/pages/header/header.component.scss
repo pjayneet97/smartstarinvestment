@@ -80,19 +80,15 @@
 
   div .btn-custom-primary{
     background-color: transparent;
-    border:1px solid #12003B;
-    color: #12003B;
+    border:1px solid #fff;
+    color: #fff;
   }
   div .btn-custom-primary:hover{
-    background-color: #12003B;
-    color: #fff;
-  }
-  div .btn-outline-custom-primary{
-    background-color: #12003B;
-    color: #fff;
-  }
-  div .btn-outline-custom-primary:hover{
-    background-color: transparent;
-    border:1px solid #12003B;
+    background-color: #fff;
     color: #12003B;
+  }
+
+  .header-nav-bg{
+    background-color: #12003B;
+    color: #fff;
   }

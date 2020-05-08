@@ -1,0 +1,18 @@
+// Buttons
+
+.btn-outline-custom-primary{
+    background-color: #12003B;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px 20px 5px;
+  }
+  
+  .btn-outline-custom-primary:focus{
+    outline: none;
+  }
+  
+  .btn-outline-custom-primary:hover{
+    background-color: transparent;
+    border:1px solid #12003B;
+    color: #12003B;
+  }
