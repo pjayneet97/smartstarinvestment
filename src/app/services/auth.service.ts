@@ -14,10 +14,13 @@ export class AuthService {
     this.afAuth.authState.subscribe(res=>{
       if(res){
         localStorage.setItem("uid",res.uid)
+        localStorage.setItem("email",res.email)
         this.router.navigateByUrl("/dashboard")
       }
       else{
         localStorage.removeItem("uid")
+        localStorage.removeItem("email")
+
         this.router.navigateByUrl("/auth")
       }
     })
@@ -27,6 +30,7 @@ export class AuthService {
       this.common.showLoader()
      return this.afAuth.createUserWithEmailAndPassword(cred.email,cred.password).then(res=>{
        localStorage.setItem("uid",res.user.uid)
+       localStorage.setItem("email",res.user.email)
        return this.db.collection("users").doc(res.user.uid).set(Object.assign({},profileInfo)).then(res=>{
         this.router.navigateByUrl("/dashboard")
         this.common.showToast("success","Successfull","Your Account is Successfully Created")
@@ -46,6 +50,7 @@ export class AuthService {
      console.log(email,password)
      return this.afAuth.signInWithEmailAndPassword(email,password).then(res=>{
       localStorage.setItem("uid",res.user.uid)
+      localStorage.setItem("email",res.user.email)
       this.common.showToast("success","Successfull","You are LoggedIn successfully")
       this.router.navigateByUrl("/dashboard")
       return res.user.uid
@@ -80,12 +85,16 @@ export class AuthService {
    logOut(){
       this.common.showLoader()
       localStorage.removeItem("uid")
+      localStorage.removeItem("email")
       this.afAuth.signOut()
       window.location.reload()
    }
 
    getUid(){
      return localStorage.getItem("uid")
+   }
+   getEmail(){
+    return localStorage.getItem("email")
    }
 
 
