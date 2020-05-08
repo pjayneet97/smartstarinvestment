@@ -8,7 +8,7 @@
         </div>
     </div>
     
-    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div *ngIf="profileInfo" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div class="container">
             <div class="card border-0">
                 <div class="row no-gutters">
@@ -21,41 +21,41 @@
                     </div>
                     <div class="col-md-9">
                         <div class="card-body p-0">
-                            <form >
+                            <form (ngSubmit)="update(profileForm)" #profileForm="ngForm">
                                 <div class="form-row mb-2">
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                         <small class="form-text text-muted h6">First Name</small>
-                                        <input type="text" class="shadow-sm" placeholder="" title="Please enter your first name" name="firstName" ngModel required>
+                                        <input type="text" class="shadow-sm" placeholder="" title="Please enter your first name" name="firstName" [(ngModel)]="profileInfo.firstName" required>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                         <small class="form-text text-muted h6">Last Name</small>
-                                        <input type="text" class="shadow-sm" placeholder="" title="Please enter your last name" name="lastName" ngModel required>
+                                        <input type="text" class="shadow-sm" placeholder="" title="Please enter your last name" name="lastName" [(ngModel)]="profileInfo.lastName" required>
                                     </div>
                                 </div>
                                 <div class="form-row my-2">
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+<!--                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                         <small class="form-text text-muted h6">Email Address</small>
-                                        <input type="email" class="shadow-sm" placeholder="" title="Please enter your email address" name="email" ngModel required>
-                                    </div>
+                                        <input type="email" class="shadow-sm" placeholder="" title="Please enter your email address" name="email" [(ngModel)]="profileInfo.firstName" required>
+                                    </div> -->
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                         <small class="form-text text-muted h6">Mobile Number</small>
                                         <input type="text" class="shadow-sm" placeholder=""
-                                            title="Please enter your valid mobile number" name="mobile" ngModel required>
+                                            title="Please enter your valid mobile number" name="mobile" [(ngModel)]="profileInfo.mobile" required>
                                     </div>
                                 </div>
                                 <div class="form-row my-2">
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                         <small class="form-text text-muted h6">Gender</small>
-                                        <select name="gender" ngModel required class="shadow-sm">
+                                        <select name="gender" [(ngModel)]="profileInfo.gender" required class="shadow-sm">
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
                                             <option value="other">Other</option>
                                         </select>
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <!--                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                         <small class="form-text text-muted h6">Password</small>
                                         <input type="password" class="shadow-sm" placeholder="" name="password" ngModel required>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="py-3">
                                     <button type="submit" class="save-btn">Save</button>

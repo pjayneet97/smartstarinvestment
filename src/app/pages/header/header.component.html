@@ -1,7 +1,7 @@
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg navbar-dark header-nav-bg px-3 border-bottom sticky-top py-1">
     <a class="navbar-brand" routerLink="">
-        <h5 class="font-weight-bold">Smart Star Investment</h5>
+        <h5 class="font-weight-bold">SSI-Portal</h5>
     </a>
     <!-- Testing perspose -->
     <!-- <div class="p-3" *ngIf="isUser() else notUser">
@@ -17,9 +17,25 @@
     </ng-template> -->
     <!-- Testing perspose -->
 
-    <button class="navbar-toggler toggle border-0" type="button" id="menu-toggle" (click)="logout()">
+    <!-- <div class="my-2">
+        <button class="navbar-toggler toggle border-0" type="button" id="menu-toggle" (click)="logout()">
             <i class="fa fa-power-off"></i>
         </button>
+    </div> -->
+
+    <span class="right-nav-buttons" *ngIf="isUser() else notUser">
+        <button class="navbar-toggler toggle border-0" (click)="logout()">
+            <i class="fa fa-power-off"></i>
+        </button>
+    </span>
+
+    <ng-template #notUser>
+        <span class="right-nav-buttons">
+            <button class="navbar-toggler toggle border-0" routerLink="/auth">
+                <i class="fa fa-user"></i>
+            </button>
+        </span>
+    </ng-template>
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <div class="mr-auto">
@@ -46,8 +62,6 @@
         </div>
 
         <span class="right-nav-buttons" *ngIf="isUser() else notUser">
-            <!-- <button (click)="logout()" class="btn btn-custom-primary btn-sm mx-1 px-4">Logout</button> -->
-            
             <div class="my-2">
                 <p>{{email}}</p>
             </div>
