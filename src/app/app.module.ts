@@ -23,6 +23,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { InvestmentPlansComponent } from './management-panel/investment-plans/investment-plans.component';
+import { OrderHistoryComponent } from './management-panel/order-history/order-history.component';
+import { TransactionHistoryComponent } from './management-panel/transaction-history/transaction-history.component';
+import { ManageProfileComponent } from './management-panel/manage-profile/manage-profile.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +42,10 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     RiskCalculatorComponent,
     HeaderComponent,
     FooterComponent,
+    InvestmentPlansComponent,
+    OrderHistoryComponent,
+    TransactionHistoryComponent,
+    ManageProfileComponent,
   ],
   imports: [
     BrowserModule,
