@@ -1,2 +1,71 @@
-<p>management-panel works!</p>
+<!-- <p>management-panel works!</p> -->
 <button (click)="logout()" class="btn btn-danger d-lg-none d-md-block">Logout</button>
+
+
+<!-- Dashboard -->
+
+<div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar shadow">
+        <div class="sidebar-sticky pr-2">
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item p-0 rounded-0">
+                    <button routerLink="/dashboard/investmant-plans" class="mx-1 py-2 px-4 bg-transparent border-0">
+                        <i class="fa fa-bar-chart text-muted"></i> Investment Plans
+                    </button>
+                </li>
+                <li class="list-group-item p-0 rounded-0">
+                    <button routerLink="/dashboard/manage-profile" class="mx-1 py-2 px-4 bg-transparent border-0">
+                        <i class="fa fa-user-plus text-muted"></i> Manage Profile
+                    </button>
+                </li>
+                <li class="list-group-item p-0 rounded-0">
+                    <button routerLink="/dashboard/order-history" class="mx-1 py-2 px-4 bg-transparent border-0">
+                        <i class="fa fa-history text-muted"></i> Order History
+                    </button>
+                </li>
+                <li class="list-group-item p-0 rounded-0">
+                    <button routerLink="/dashboard/transaction-history" class="mx-1 py-2 px-4 bg-transparent border-0"><i class="fa fa-shopping-cart text-muted"></i> Transaction History
+                    </button>
+                </li>
+              </ul>
+  
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 my-3 text-muted">
+            <span>logout to your account</span>
+          </h6>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item p-0 rounded-0 border-top border-bottom">
+                <button (click)="logout()" class="mx-1 py-2 px-4 bg-transparent border-0">
+                    <i class="fa fa-power-off px-2 text-muted"></i> Logout
+                </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  
+      <main role="main" class="col-md-10 ml-sm-auto col-lg-10 p-0">
+        
+        <router-outlet></router-outlet>
+      </main>
+
+      
+    </div>
+  </div>
+
+  <footer class="footer mt-auto fixed-bottom bg-white border-top d-block d-md-none d-lg-none d-xl-none p-2">
+    <ul class="nav d-flex justify-content-around">
+        <li class="nav-item">
+            <button class="btn-lg nav-link bg-transparent border-0 footer-menu-btn" routerLink="/dashboard/investmant-plans"><i class="fa fa-bar-chart"></i></button>
+        </li>
+        <li class="nav-item">
+            <button class="btn-lg nav-link bg-transparent border-0 footer-menu-btn" routerLink="/dashboard/manage-profile"><i class="fa fa-user-plus"></i></button>
+        </li>
+        <li class="nav-item">
+            <button class="btn-lg nav-link bg-transparent border-0 footer-menu-btn" routerLink="/dashboard/order-history"><i class="fa fa-history"></i></button>
+        </li>
+        <li class="nav-item">
+            <button class="btn-lg nav-link bg-transparent border-0 footer-menu-btn" routerLink="/dashboard/transaction-history"><i class="fa fa-shopping-cart"></i></button>
+        </li>
+    </ul>
+</footer>

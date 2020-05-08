@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
+  email=this.authService.getEmail();
+
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -21,3 +23,4 @@ export class HeaderComponent implements OnInit {
   }
 
 }
+

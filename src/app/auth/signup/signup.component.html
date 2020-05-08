@@ -1,50 +1,57 @@
-<div class="jumbotron jumbotron-fluid bg-white border-0">
-    <div class="container card bg-transparent border-0">
-        <div class="container center-text-div">
-            <h3 class="font-weight-normal heading">Create New Account</h3>
-            <hr>
+
+<div class="jumbotron jumbotron-fluid border-0 m-0 ml-sm-auto row">
+    <div class="col-md-2 ml-sm-auto col-lg-2"></div>
+
+    <div class="col-md-8 ml-sm-auto col-lg-8">
+        <div class="container card bg-white border p-5 w-100 shadow">
+            <div class="center-text-div">
+                <h3 class="font-weight-normal heading">Create New Account</h3>
+                <hr>
+            </div>
+            <form (ngSubmit)="signup(signupForm)" #signupForm="ngForm">
+                <div class="form-row my-2">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <small class="form-text text-muted h6">First Name</small>
+                        <input type="text" class="shadow-sm" placeholder="" title="Please enter your first name" name="firstName" ngModel required>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <small class="form-text text-muted h6">Last Name</small>
+                        <input type="text" class="shadow-sm" placeholder="" title="Please enter your last name" name="lastName" ngModel required>
+                    </div>
+                </div>
+                <div class="form-row my-2">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <small class="form-text text-muted h6">Email Address</small>
+                        <input type="email" class="shadow-sm" placeholder="" title="Please enter your email address" name="email" ngModel required>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <small class="form-text text-muted h6">Mobile Number</small>
+                        <input type="text" class="shadow-sm" placeholder=""
+                            title="Please enter your valid mobile number" name="mobile" ngModel required>
+                    </div>
+                </div>
+                <div class="form-row my-2">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <small class="form-text text-muted h6">Gender</small>
+                        <select name="gender" ngModel required class="shadow-sm">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <small class="form-text text-muted h6">Password</small>
+                        <input type="password" class="shadow-sm" placeholder="" name="password" ngModel required>
+                    </div>
+                </div>
+                <div class="py-3">
+                    <button type="submit" [disabled]="!signupForm.valid" class="btn signup-btn">Create Account</button>
+                </div>
+                <small class="form-text text-muted">If you already an account <a routerLink="../">Click 
+                        here</a></small>
+            </form>
         </div>
-        <form (ngSubmit)="signup(signupForm)" #signupForm="ngForm">
-            <div class="form-row my-2">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <small id="fnameHelp" class="form-text text-muted">First Name</small>
-                    <input type="text" class="shadow-sm" placeholder="" title="Please enter your first name" name="firstName" ngModel required>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <small id="lnameHelp" class="form-text text-muted">Last Name</small>
-                    <input type="text" class="shadow-sm" placeholder="" title="Please enter your last name" name="lastName" ngModel required>
-                </div>
-            </div>
-            <div class="form-row my-2">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <small id="emailHelp" class="form-text text-muted">Email Address</small>
-                    <input type="email" class="shadow-sm" placeholder="" title="Please enter your email address" name="email" ngModel required>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <small id="mobileHelp" class="form-text text-muted">Mobile Number</small>
-                    <input type="text" class="shadow-sm" placeholder=""
-                        title="Please enter your valid mobile number" name="mobile" ngModel required>
-                </div>
-            </div>
-            <div class="form-row my-2">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <small id="passwordHelp" class="form-text text-muted">Gender</small>
-                    <select name="gender" ngModel required class="form-control">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <small id="passwordHelp" class="form-text text-muted">Password</small>
-                    <input type="password" class="shadow-sm" placeholder="" name="password" ngModel required>
-                </div>
-            </div>
-            <div class="py-4">
-                <button type="submit" [disabled]="!signupForm.valid" class="btn-submit shadow-sm text-decoration-none">Create Account</button>
-            </div>
-            <small class="form-text text-muted">If you already an account <a routerLink="../">Click 
-                    here</a></small>
-        </form>
     </div>
+
+    <div class="col-md-2 ml-sm-auto col-lg-2"></div>
 </div>
