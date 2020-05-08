@@ -20,7 +20,6 @@ export class AuthService {
       else{
         localStorage.removeItem("uid")
         localStorage.removeItem("email")
-
         this.router.navigateByUrl("/auth")
       }
     })

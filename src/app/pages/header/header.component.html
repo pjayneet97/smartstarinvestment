@@ -61,13 +61,13 @@
             </ul>
         </div>
 
-        <span class="right-nav-buttons" *ngIf="isUser() else notUser">
+        <span class="right-nav-buttons" *ngIf="isUser() else notUserd">
             <div class="my-2">
                 <p>{{email}}</p>
             </div>
         </span>
 
-        <ng-template #notUser>
+        <ng-template #notUserd>
             <span class="right-nav-buttons">
                 <button routerLink='auth'
                     class="btn-custom-primary btn-sm mx-1 px-4 rounded-0 text-decoration-none">Sign In</button>

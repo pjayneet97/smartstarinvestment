@@ -16,7 +16,7 @@
                         <figure class="figure">
                             <img src="https://secure.gravatar.com/avatar/4cdbecf02f1952952ac7dc23945df3a6?s=400&d=mm&r=g"
                                 class="card-img figure-img img-fluid rounded avatar-profile" alt="Avatar">
-                            <figcaption class="figure-caption text-center h5">username</figcaption>
+                            <figcaption class="figure-caption text-center h5">{{email}}</figcaption>
                         </figure>
                     </div>
                     <div class="col-md-9">
@@ -33,10 +33,6 @@
                                     </div>
                                 </div>
                                 <div class="form-row my-2">
-<!--                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                        <small class="form-text text-muted h6">Email Address</small>
-                                        <input type="email" class="shadow-sm" placeholder="" title="Please enter your email address" name="email" [(ngModel)]="profileInfo.firstName" required>
-                                    </div> -->
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                         <small class="form-text text-muted h6">Mobile Number</small>
                                         <input type="text" class="shadow-sm" placeholder=""
@@ -52,16 +48,10 @@
                                             <option value="other">Other</option>
                                         </select>
                                     </div>
-        <!--                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                        <small class="form-text text-muted h6">Password</small>
-                                        <input type="password" class="shadow-sm" placeholder="" name="password" ngModel required>
-                                    </div> -->
                                 </div>
                                 <div class="py-3">
                                     <button type="submit" class="save-btn">Save</button>
                                 </div>
-                                <small class="form-text text-muted">If you already an account <a routerLink="../">Click 
-                                        here</a></small>
                             </form>
                         </div>
                     </div>
