@@ -10,6 +10,10 @@ import { ForgetPasswordComponent } from './auth/forget-password/forget-password.
 import { RiskCalculatorComponent } from './pages/risk-calculator/risk-calculator.component';
 import { ManagementPanelComponent } from './management-panel/management-panel.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { InvestmentPlansComponent } from './management-panel/investment-plans/investment-plans.component';
+import { OrderHistoryComponent } from './management-panel/order-history/order-history.component';
+import { TransactionHistoryComponent } from './management-panel/transaction-history/transaction-history.component';
+import { ManageProfileComponent } from './management-panel/manage-profile/manage-profile.component';
 
 
 const routes: Routes = [
@@ -23,7 +27,12 @@ const routes: Routes = [
     {path:"signup",component:SignupComponent},
     {path:"forget-password",component:ForgetPasswordComponent}
   ]},
-  {path:"dashboard",component:ManagementPanelComponent,canActivate:[AuthGuardService]}
+  {path:"dashboard",component:ManagementPanelComponent,canActivate:[AuthGuardService],children:[
+    {path:"investmant-plans",component:InvestmentPlansComponent},
+    {path:"order-history",component:OrderHistoryComponent},
+    {path:"transaction-history",component:TransactionHistoryComponent},
+    {path:"manage-profile",component:ManageProfileComponent}
+  ]}
 ];
 
 @NgModule({
