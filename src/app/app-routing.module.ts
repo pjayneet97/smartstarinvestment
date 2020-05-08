@@ -28,6 +28,7 @@ const routes: Routes = [
     {path:"forget-password",component:ForgetPasswordComponent}
   ]},
   {path:"dashboard",component:ManagementPanelComponent,canActivate:[AuthGuardService],children:[
+    {path:"",component:InvestmentPlansComponent},
     {path:"investmant-plans",component:InvestmentPlansComponent},
     {path:"order-history",component:OrderHistoryComponent},
     {path:"transaction-history",component:TransactionHistoryComponent},
