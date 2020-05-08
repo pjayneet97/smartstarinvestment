@@ -97,5 +97,12 @@ export class AuthService {
     return localStorage.getItem("email")
    }
 
+   getProfile(){
+     return this.db.collection("users").doc(this.getUid()).valueChanges()
+   }
+   updateProfile(profileInfo:{firstName:string,lastName:string,mobile:string,gender:string}){
+     return this.db.collection("users").doc(this.getUid()).set(profileInfo)
+   }
+
 
 }
