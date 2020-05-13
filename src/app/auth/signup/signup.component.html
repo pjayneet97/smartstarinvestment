@@ -26,12 +26,7 @@
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <small class="form-text text-muted h6">Mobile Number *</small>
-                        <input class="shadow-sm" type="tel" class="shadow-sm" pattern="[0-9]{4}[0-9]{2}[0-9]{4}" placeholder="9876543210" title="Please enter your valid mobile number" name="mobile" ngModel required [(ngModel)]="signupForm.name" #mobile="ngModel" minlength="10" maxlength="10">
-                            <p *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)">
-                                <small class="form-text text-danger" *ngIf="mobile.errors.required">Mobile Number is
-                                    required.</small>
-                                <small class="form-text text-danger" *ngIf="mobile.errors.minlength">Mobile Number must be 10 characters.</small>
-                            </p>
+                        <input class="shadow-sm" type="tel" class="shadow-sm" pattern="[0-9]{4}[0-9]{2}[0-9]{4}" placeholder="9876543210" title="Please enter your valid mobile number" name="mobile" minlength="10" maxlength="10" ngModel required>
                     </div>
                 </div>
                 <div class="form-row my-2">
@@ -45,7 +40,15 @@
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <small class="form-text text-muted h6">Password *</small>
-                        <input type="password" class="shadow-sm" placeholder="123ssi#John" name="password" ngModel required>
+                        <input type="password" class="shadow-sm" placeholder="123ssi#John" minlength="8" maxlength="12"
+                        name="password" ngModel required [(ngModel)]="signupForm.name" #password="ngModel">
+
+                        <p *ngIf="password.invalid && (password.dirty || password.touched)">
+                            <small class="form-text text-danger" *ngIf="password.errors.required">Password is
+                                required.</small>
+                            <small class="form-text text-danger" *ngIf="password.errors.minlength">Password must be at least
+                                8 characters long.</small>
+                        </p>
                     </div>
                 </div>
                 <div class="py-3">
