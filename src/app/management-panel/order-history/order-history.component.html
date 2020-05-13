@@ -11,7 +11,28 @@
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div class="container">
             <!-- Content Card -->
-
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Interest</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of orders;let i=index">
+                    <th scope="row">1</th>
+                    <td>{{item.plan.title}}</td>
+                    <td>{{item.plan.interest}}</td>
+                    <td>{{item.timestamp.toDate() | date}}</td>
+                    <td>
+                        <button>Action</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
 
         </div>
     </div>

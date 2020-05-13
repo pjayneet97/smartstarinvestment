@@ -13,25 +13,14 @@
          
                 <!-- Example row of columns -->
                 <div class="row">
-                    <div class="col-md-4">
+                    <div *ngFor="let item of plans" class="col-md-4">
                         <div class="card p-3 shadow-sm my-2">
-                            <h4>Low Risk Fund</h4>
-                            <p>Average Annual Return (AAR) 5-10%</p>
-                            <p><button type="button" class="buy-now-btn shadow-sm border-0">Buy Now</button></p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card p-3 shadow-sm my-2">
-                            <h4>Moderate Fund</h4>
-                            <p>Average Annual Return (AAR) 10-15%</p>
-                            <p><button type="button" class="buy-now-btn shadow-sm border-0">Buy Now</button></p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card p-3 shadow-sm my-2">
-                            <h4>High Risk Fund</h4>
-                            <p>Average Annual Return (AAR) more then 15%</p>
-                            <p><button type="button" class="buy-now-btn shadow-sm border-0">Buy Now</button></p>
+                            <h4>{{item.title}}</h4>
+                            <p>Average Annual Return (AAR) {{item.interest}} %</p>
+                            <p>
+                                <button (click)="proceedToPay($event)" type="button" class="buy-now-btn shadow-sm border-0 mx-1">Invest Now</button>
+                                <button type="button" class="view-details-btn shadow-sm border-0 mx-1">View Details</button>
+                            </p>
                         </div>
                     </div>
                 </div>

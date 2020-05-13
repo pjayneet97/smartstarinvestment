@@ -27,6 +27,14 @@ import { InvestmentPlansComponent } from './management-panel/investment-plans/in
 import { OrderHistoryComponent } from './management-panel/order-history/order-history.component';
 import { TransactionHistoryComponent } from './management-panel/transaction-history/transaction-history.component';
 import { ManageProfileComponent } from './management-panel/manage-profile/manage-profile.component';
+import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './admin/login/login.component';
+import { ManageInvestmentComponent } from './admin/home/manage-investment/manage-investment.component';
+import { AddComponent } from './admin/home/manage-investment/add/add.component';
+import { EditComponent } from './admin/home/manage-investment/edit/edit.component';
+import { AllComponent } from './admin/home/manage-investment/all/all.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { PlansComponent } from './admin/dashboard/plans/plans.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +54,14 @@ import { ManageProfileComponent } from './management-panel/manage-profile/manage
     OrderHistoryComponent,
     TransactionHistoryComponent,
     ManageProfileComponent,
+    AdminComponent,
+    LoginComponent,
+    ManageInvestmentComponent,
+    AddComponent,
+    EditComponent,
+    AllComponent,
+    DashboardComponent,
+    PlansComponent,
   ],
   imports: [
     BrowserModule,

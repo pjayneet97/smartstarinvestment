@@ -14,6 +14,12 @@ import { InvestmentPlansComponent } from './management-panel/investment-plans/in
 import { OrderHistoryComponent } from './management-panel/order-history/order-history.component';
 import { TransactionHistoryComponent } from './management-panel/transaction-history/transaction-history.component';
 import { ManageProfileComponent } from './management-panel/manage-profile/manage-profile.component';
+import { AdminComponent } from './admin/admin.component';
+import { ManageInvestmentComponent } from './admin/home/manage-investment/manage-investment.component';
+import { AllComponent } from './admin/home/manage-investment/all/all.component';
+import { AddComponent } from './admin/home/manage-investment/add/add.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { PlansComponent } from './admin/dashboard/plans/plans.component';
 
 
 const routes: Routes = [
@@ -33,7 +39,12 @@ const routes: Routes = [
     {path:"order-history",component:OrderHistoryComponent},
     {path:"transaction-history",component:TransactionHistoryComponent},
     {path:"manage-profile",component:ManageProfileComponent}
-  ]}
+  ]},
+  {path:"admin",component:AdminComponent,children:[
+    {path:"dashboard",component:DashboardComponent,children:[
+      {path:"plans",component:PlansComponent}
+    ]}
+  ]},
 ];
 
 @NgModule({

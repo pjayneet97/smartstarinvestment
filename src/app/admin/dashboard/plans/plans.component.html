@@ -1,0 +1,71 @@
+<div class="container">
+    <h3 class="float-left">Investment plans</h3>
+    <button class="btn btn-primary float-right" (click)="open(content)">Add New</button>
+    <br>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Interest</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of allPlans;let i=index">
+            <th scope="row">1</th>
+            <td>{{item.title}}</td>
+            <td>{{item.interest}}</td>
+            <td>
+                <button (click)="open(content,item)">Edit</button>
+                <button (click)="delete(item.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Plan Details</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #planForm="ngForm">
+        <div class="form-group">
+          <label for="dateOfBirth">Title</label>
+          <div class="input-group">
+            <input required type="text" class="form-control" name="title" [(ngModel)]="selectedPlan.title">
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="dateOfBirth">Interest</label>
+            <div class="input-group">
+              <input required type="number" class="form-control" name="interest" [(ngModel)]="selectedPlan.interest">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dateOfBirth">Description</label>
+            <div class="input-group">
+              <textarea required class="form-control" id="" cols="30" rows="5"  name="description" [(ngModel)]="selectedPlan.description"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dateOfBirth">Minimum Investment</label>
+            <div class="input-group">
+              <input required type="number" class="form-control" name="minimum" [(ngModel)]="selectedPlan.minimum">
+            </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" [disabled]="!planForm.valid" class="btn btn-outline-dark" (click)="modal.close('save')">Save</button>
+    </div>
+  </ng-template>
+  
+
+  
+  <hr>
+  

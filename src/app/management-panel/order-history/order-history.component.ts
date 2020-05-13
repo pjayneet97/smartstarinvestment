@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PaymentService } from 'src/app/services/payment.service';
+import { CommonService } from 'src/app/common.service';
 
 @Component({
   selector: 'app-order-history',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-history.component.scss']
 })
 export class OrderHistoryComponent implements OnInit {
-
-  constructor() { }
+  orders:any=[]
+  constructor(public paymentService:PaymentService,public commonService:CommonService) { }
 
   ngOnInit(): void {
+    this.commonService.showLoader()
+    this.paymentService.getAllOrders().subscribe(res=>{
+      this.commonService.stopLoader()
+      this.orders=res
+      console.log(res)
+    })
   }
 
 }
