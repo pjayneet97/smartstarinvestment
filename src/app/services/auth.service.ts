@@ -9,10 +9,11 @@ import { CommonService } from '../common.service';
   providedIn: 'root'
 })
 export class AuthService {
-
+  uid=null
   constructor(public afAuth:AngularFireAuth,public db:AngularFirestore,public router:Router,public common:CommonService) {
     this.afAuth.authState.subscribe(res=>{
       if(res){
+        this.uid=res.uid
         localStorage.setItem("uid",res.uid)
         localStorage.setItem("email",res.email)
         //this.router.navigateByUrl("/dashboard")
@@ -27,6 +28,7 @@ export class AuthService {
    createAccount(cred:{email:string,password:string},profileInfo){
       this.common.showLoader()
      return this.afAuth.createUserWithEmailAndPassword(cred.email,cred.password).then(res=>{
+      this.uid=res.user.uid
        localStorage.setItem("uid",res.user.uid)
        localStorage.setItem("email",res.user.email)
        return this.db.collection("users").doc(res.user.uid).set(Object.assign({}, )).then(res=>{
@@ -48,6 +50,7 @@ export class AuthService {
      console.log(email,password)
 
      return this.afAuth.signInWithEmailAndPassword(email,password).then(res=>{
+      this.uid=res.user.uid
       localStorage.setItem("uid",res.user.uid)
       localStorage.setItem("email",res.user.email)
       this.common.showToast("success","Successfull","You are LoggedIn successfully")
@@ -82,11 +85,14 @@ export class AuthService {
    }
 
    logOut(){
+     this.uid=null
+     this.router.navigateByUrl("/auth")
       this.common.showLoader()
       localStorage.removeItem("uid")
       localStorage.removeItem("email")
-      this.afAuth.signOut()
-      window.location.reload()
+      this.afAuth.signOut().then(res=>{
+        this.common.stopLoader()
+      })
    }
 
    getUid(){
