@@ -27,7 +27,12 @@
         <button class="navbar-toggler toggle border-0" (click)="logout()">
             <i class="fa fa-power-off"></i>
         </button>
+        <button class="navbar-toggler" (click)="isMenuCollapsed = !isMenuCollapsed" type="button">
+            &#9776;
+        </button>
     </span>
+
+    
 
     <ng-template #notUser>
         <span class="right-nav-buttons">
@@ -37,22 +42,22 @@
         </span>
     </ng-template>
 
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarNavDropdown">
         <div class="mr-auto">
             <ul class="navbar-nav">
-                <li class="nav-item">
+                <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
                     <a class="nav-link" routerLink="">Home</a>
                 </li>
-                <li class="nav-item">
+                <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
                     <a class="nav-link" routerLink="/dashboard">Dashboard</a>
                 </li>
-                <li class="nav-item">
+                <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
                     <a class="nav-link" href="#">Rafer a friend</a>
                 </li>
-                <li class="nav-item">
+                <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
                     <a class="nav-link" routerLink="risk-calculator">Risk Calculator</a>
                 </li>
-                <li class="nav-item">
+                <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
                     <a class="nav-link" routerLink='aboutus'>About Us</a>
                 </li>
                 

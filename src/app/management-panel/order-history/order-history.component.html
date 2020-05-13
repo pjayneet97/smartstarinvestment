@@ -17,6 +17,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
                     <th scope="col">Interest</th>
+                    <th scope="col">Amount Invested</th>
                     <th scope="col">Date</th>
                     <th scope="col">Actions</th>
                   </tr>
@@ -26,6 +27,7 @@
                     <th scope="row">1</th>
                     <td>{{item.plan.title}}</td>
                     <td>{{item.plan.interest}}</td>
+                    <td>{{item.amount}}</td>
                     <td>{{item.timestamp.toDate() | date}}</td>
                     <td>
                         <button>Action</button>

@@ -18,8 +18,7 @@
                             <h4>{{item.title}}</h4>
                             <p>Average Annual Return (AAR) {{item.interest}} %</p>
                             <p>
-                                <button (click)="proceedToPay($event)" type="button" class="buy-now-btn shadow-sm border-0 mx-1">Invest Now</button>
-                                <button type="button" class="view-details-btn shadow-sm border-0 mx-1">View Details</button>
+                                <button (click)="open(content,item)" type="button" class="buy-now-btn shadow-sm border-0 mx-1">View Plan Details</button>
                             </p>
                         </div>
                     </div>
@@ -28,3 +27,41 @@
         </div>
     </div>
 </div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Investment Plan Details</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <h6>Plan Name :</h6>
+        <p>{{selectedPlan.title}}</p>
+        <h6>Expected Returns :</h6>
+        <p>{{selectedPlan.interest}}% </p>
+        <h6>Plan Description :</h6>
+        <p>{{selectedPlan.description}}</p>
+        <h6>Minimum Investment :</h6>
+        <p>{{selectedPlan.minimum}}</p>
+      <form>
+        <div class="form-group">
+          <label><b>Enter Amount you want to invest</b></label>
+          <div class="input-group">
+            <input [(ngModel)]="amount" min="200" class="form-control" type="number" placeholder="eg. 2000" name="amount" ngModel>>
+          </div>
+          <small class="text-danger" *ngIf="(amount<selectedPlan.minimum) && amount">Enter a Valid Amount</small>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+        <button (click)="proceedToPay($event)" [disabled]="!amount || (amount<selectedPlan.minimum)" type="button" class="btn-block buy-now-btn shadow-sm border-0 mx-1">Invest Now</button>
+    </div>
+  </ng-template>
+  
+
+  
+
+
+

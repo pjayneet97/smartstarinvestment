@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  public isMenuCollapsed = true;
   email=this.authService.getEmail();
 
   constructor(private authService: AuthService) { }

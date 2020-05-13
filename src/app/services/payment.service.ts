@@ -13,10 +13,10 @@ export class PaymentService {
     return window;
   }
 
-  paidSuccessfully(orderid,plan){
+  paidSuccessfully(orderid,plan,amount){
     let uid = this.auth.getUid();
     let timestamp=firebase.firestore.Timestamp.now();
-    let newOrder={orderid,plan,timestamp,uid}
+    let newOrder={orderid,plan,timestamp,uid,amount}
     return this.db.collection("orders").add(newOrder)
   }
   getAllOrders(){

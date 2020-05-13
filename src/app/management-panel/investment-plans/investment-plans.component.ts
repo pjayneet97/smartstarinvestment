@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PlansService } from 'src/app/services/plans.service';
 import { PaymentService } from 'src/app/services/payment.service';
 import { CommonService } from 'src/app/common.service';
+import { Router } from '@angular/router';
+import { NgbModal,ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-investment-plans',
@@ -11,8 +13,10 @@ import { CommonService } from 'src/app/common.service';
 export class InvestmentPlansComponent implements OnInit {
   plans:any=[]
   WindowRef: any;
+  amount=null;
+  selectedPlan=null
   processingPayment: boolean;
-  constructor(public planService:PlansService,private paymentService: PaymentService,public commonService:CommonService) { }
+  constructor(public planService:PlansService,private paymentService: PaymentService,public commonService:CommonService,public router:Router,private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.WindowRef = this.paymentService.WindowRef;
@@ -27,14 +31,14 @@ export class InvestmentPlansComponent implements OnInit {
   }
 
   proceedToPay($event) {
-    this.commonService.showLoader()
+    this.modalService.dismissAll()
     this.processingPayment = true;
     this.initiatePaymentModal($event);
   }
 
 
   initiatePaymentModal(event) {
-          var rzp1 = new this.WindowRef.Razorpay(this.preparePaymentDetails());
+          var rzp1 = new this.WindowRef.Razorpay(this.preparePaymentDetails())
           this.processingPayment = false;
           rzp1.open(); 
           event.preventDefault();
@@ -44,7 +48,7 @@ export class InvestmentPlansComponent implements OnInit {
    preparePaymentDetails(){
     return  {
       "key": "rzp_test_qXocOi92VpABBZ", // Enter the Key ID generated from the Dashboard
-      "amount": "100", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      "amount": this.amount*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       "currency": "INR",
       "name": "Smart Star Investment",
       "description": "Investments for you",
@@ -64,10 +68,28 @@ export class InvestmentPlansComponent implements OnInit {
 
    handle_response(_response){
     this.commonService.showToast("success","order make successfully","Check Order History")
-     this.paymentService.paidSuccessfully(_response,this.plans[0]).then(res=>{
-       this.commonService.stopLoader()
-       this.commonService.showToast("success","order make successfully","Check Order History")
+     this.paymentService.paidSuccessfully(_response,this.selectedPlan,this.amount).then(res=>{
      })
    }
+
+   open(content,plan) {
+     this.amount=null
+     this.selectedPlan=plan
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      console.log(result)
+    }, (reason) => {
+     console.log(reason)
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
 
 }
