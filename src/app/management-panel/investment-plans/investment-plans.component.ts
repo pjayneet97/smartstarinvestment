@@ -57,6 +57,9 @@ export class InvestmentPlansComponent implements OnInit {
       "handler": function (response){
           this.handle_response(response.razorpay_payment_id);
       }.bind(this),
+      "ondismiss": function(){
+        alert("close")
+      },
       "notes": {
           "address": "Razorpay Corporate Office"
       },
@@ -67,8 +70,10 @@ export class InvestmentPlansComponent implements OnInit {
    }
 
    handle_response(_response){
-    this.commonService.showToast("success","order make successfully","Check Order History")
+     alert("Payment successful! go to order history section for details")
      this.paymentService.paidSuccessfully(_response,this.selectedPlan,this.amount).then(res=>{
+      this.commonService.showToast("success","order make successfully","Check Order History")
+      location.href="/dashboard/order-history"
      })
    }
 

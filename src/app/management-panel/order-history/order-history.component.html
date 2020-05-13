@@ -9,7 +9,7 @@
     </div>
     
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <div class="container">
+        <div class="container table-responsive">
             <!-- Content Card -->
             <table class="table">
                 <thead class="thead-dark">
@@ -24,7 +24,7 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of orders;let i=index">
-                    <th scope="row">1</th>
+                    <th scope="row">{{i}}</th>
                     <td>{{item.plan.title}}</td>
                     <td>{{item.plan.interest}}</td>
                     <td>{{item.amount}}</td>
