@@ -17,7 +17,7 @@ export class PaymentService {
     let uid = this.auth.getUid();
     let timestamp=firebase.firestore.Timestamp.now();
     let newOrder={orderid,plan,timestamp,uid}
-    this.db.collection("orders").add(newOrder)
+    return this.db.collection("orders").add(newOrder)
   }
   getAllOrders(){
     return this.db.collection("orders",ref=>ref.where("uid","==",this.auth.getUid()).orderBy("timestamp","desc")).snapshotChanges().pipe(

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlansService } from 'src/app/services/plans.service';
 import { PaymentService } from 'src/app/services/payment.service';
+import { CommonService } from 'src/app/common.service';
 
 @Component({
   selector: 'app-investment-plans',
@@ -11,7 +12,7 @@ export class InvestmentPlansComponent implements OnInit {
   plans:any=[]
   WindowRef: any;
   processingPayment: boolean;
-  constructor(public planService:PlansService,private paymentService: PaymentService) { }
+  constructor(public planService:PlansService,private paymentService: PaymentService,public commonService:CommonService) { }
 
   ngOnInit(): void {
     this.WindowRef = this.paymentService.WindowRef;
@@ -26,6 +27,7 @@ export class InvestmentPlansComponent implements OnInit {
   }
 
   proceedToPay($event) {
+    this.commonService.showLoader()
     this.processingPayment = true;
     this.initiatePaymentModal($event);
   }
@@ -61,7 +63,11 @@ export class InvestmentPlansComponent implements OnInit {
    }
 
    handle_response(_response){
-     this.paymentService.paidSuccessfully(_response,this.plans[0])
+    this.commonService.showToast("success","order make successfully","Check Order History")
+     this.paymentService.paidSuccessfully(_response,this.plans[0]).then(res=>{
+       this.commonService.stopLoader()
+       this.commonService.showToast("success","order make successfully","Check Order History")
+     })
    }
 
 }
