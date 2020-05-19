@@ -33,8 +33,6 @@
                                         <input disabled type="text" class="shadow-sm" placeholder=""
                                             title="Please enter your valid mobile number" name="mobile" [(ngModel)]="profileInfo.mobile" required>
                                     </div>
-                                </div>
-                                <div class="form-row my-2">
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                         <small class="form-text text-muted h6">Gender</small>
                                         <select disabled name="gender" [(ngModel)]="profileInfo.gender" required class="shadow-sm">
@@ -44,8 +42,26 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="form-row mb-2">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <small class="form-text text-muted h6">Account No</small>
+                                        <input type="text" class="shadow-sm" placeholder="" title="Please enter your Bank Account No" name="ac" [(ngModel)]="profileInfo.ac" required>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <small class="form-text text-muted h6">IFSC CODE</small>
+                                        <input type="text" class="shadow-sm" placeholder="" title="Please enter account IFSC CODE" name="ifsc" [(ngModel)]="profileInfo.ifsc" required>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <small class="form-text text-muted h6">Account Holder Name</small>
+                                        <input type="text" class="shadow-sm" placeholder="" title="Please enter account IFSC CODE" name="acholder" [(ngModel)]="profileInfo.acholder" required>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <small class="form-text text-muted h6">Account Holder's PAN details</small>
+                                        <input type="text" class="shadow-sm" placeholder="" title="Please enter uour PAN CARD no." name="pan" [(ngModel)]="profileInfo.pan" required>
+                                    </div>
+                                </div>
                                 <div class="py-3">
-                                    <!-- <button type="submit" class="save-btn">Save</button> -->
+                                    <button *ngIf="profileInfo.ac" [disabled]="!profileForm.valid" type="submit" class="save-btn">Save</button>
                                 </div>
                             </form>
                         </div>

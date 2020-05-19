@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class ManageProfileComponent implements OnInit {
   profileInfo:any;
   email:string;
+  addacform=false
   constructor( private authService: AuthService ) { }
 
   ngOnInit(): void {

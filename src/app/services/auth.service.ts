@@ -106,7 +106,7 @@ export class AuthService {
      return this.db.collection("users").doc(this.getUid()).valueChanges()
    }
    updateProfile(profileInfo:{firstName:string,lastName:string,mobile:string,gender:string}){
-     return this.db.collection("users").doc(this.getUid()).set(profileInfo).then(res=>{
+     return this.db.collection("users").doc(this.getUid()).update(profileInfo).then(res=>{
        this.common.showToast("success","Update Successful","Profile Details Updated Successfully")
        return res
      }).catch(err=>{

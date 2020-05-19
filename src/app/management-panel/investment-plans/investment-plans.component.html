@@ -16,7 +16,6 @@
                     <div *ngFor="let item of plans" class="col-md-4">
                         <div class="card p-3 shadow-sm my-2">
                             <h4>{{item.title}}</h4>
-                            <p>Average Annual Return (AAR) {{item.interest}} %</p>
                             <p>
                                 <button (click)="open(content,item)" type="button" class="buy-now-btn shadow-sm border-0 mx-1">View Plan Details</button>
                             </p>
