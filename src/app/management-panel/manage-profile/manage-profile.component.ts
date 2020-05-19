@@ -14,6 +14,7 @@ export class ManageProfileComponent implements OnInit {
   ngOnInit(): void {
     this.email = this.authService.getEmail()
     this.authService.getProfile().subscribe(res=>{
+      console.log(res)
     this.profileInfo=res
   })
   }

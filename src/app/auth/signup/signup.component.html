@@ -12,38 +12,43 @@
                 <div class="form-row my-2">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <small class="form-text text-muted h6">First Name *</small>
-                        <input type="text" class="shadow-sm" placeholder="John" title="Please enter your first name" name="firstName" ngModel required>
+                        <input #firstname="ngModel" type="text" class="shadow-sm" placeholder="John" title="Please enter your first name" name="firstName" ngModel required>
+                        <small class="form-text text-danger" *ngIf="!firstname.valid && firstname.touched">Enter valid first name</small>
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <small class="form-text text-muted h6">Last Name *</small>
-                        <input type="text" class="shadow-sm" placeholder="Wick" title="Please enter your last name" name="lastName" ngModel required>
+                        <input #lastname="ngModel" type="text" class="shadow-sm" placeholder="Wick" title="Please enter your last name" name="lastName" ngModel required>
+                        <small class="form-text text-danger" *ngIf="!lastname.valid && lastname.touched">Enter valid last name</small>
                     </div>
                 </div>
                 <div class="form-row my-2">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <small class="form-text text-muted h6">Email Address *</small>
-                        <input type="email" class="shadow-sm" placeholder="johnwick@example.com" title="Please enter your email address" name="email" ngModel required>
+                        <input #email="ngModel" type="email"  class="shadow-sm" placeholder="johnwick@example.com" title="Please enter your email address" name="email" ngModel required>
+                        <small class="form-text text-danger" *ngIf="!email.valid && email.touched">Email is Invalid</small>
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <small class="form-text text-muted h6">Mobile Number *</small>
-                        <input class="shadow-sm" type="tel" class="shadow-sm" pattern="[0-9]{4}[0-9]{2}[0-9]{4}" placeholder="9876543210" title="Please enter your valid mobile number" name="mobile" minlength="10" maxlength="10" ngModel required>
+                        <input #phone="ngModel" class="shadow-sm" type="tel" class="shadow-sm" pattern="[0-9]{4}[0-9]{2}[0-9]{4}" placeholder="9876543210" title="Please enter your valid mobile number" name="mobile" minlength="10" maxlength="10" ngModel required>
+                        <small class="form-text text-danger" *ngIf="!phone.valid  && phone.touched">Enter Valid Mobile no</small>
                     </div>
                 </div>
                 <div class="form-row my-2">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <small class="form-text text-muted h6">Gender *</small>
-                        <select name="gender" ngModel required class="shadow-sm">
+                        <select #gender="ngModel"  name="gender" ngModel required class="shadow-sm">
                             <option value="male" selected>Male</option>
                             <option value="female">Female</option>
                             <option value="other">Other</option>
                         </select>
+                        <small class="form-text text-danger" *ngIf="!gender.valid  && gender.touched">Enter Valid Mobile no</small>
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <small class="form-text text-muted h6">Password *</small>
                         <input type="password" class="shadow-sm" placeholder="123ssi#John" minlength="8" maxlength="12"
                         name="password" ngModel required [(ngModel)]="signupForm.name" #password="ngModel">
 
-                        <p *ngIf="password.invalid && (password.dirty || password.touched)">
+                        <p *ngIf="password.invalid && password.touched">
                             <small class="form-text text-danger" *ngIf="password.errors.required">Password is
                                 required.</small>
                             <small class="form-text text-danger" *ngIf="password.errors.minlength">Password must be at least

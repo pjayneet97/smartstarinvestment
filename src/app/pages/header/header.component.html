@@ -46,19 +46,22 @@
         <div class="mr-auto">
             <ul class="navbar-nav">
                 <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
-                    <a class="nav-link" routerLink="">Home</a>
+                    <a class="nav-link" *ngIf="isUser()" routerLink="/dashboard">Dashboard</a>
                 </li>
                 <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
-                    <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+                    <a class="nav-link" routerLink="">Home</a>
+                </li>
+<!--                 <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
+                    <a class="nav-link" routerLink="">How It Works</a>
+                </li> -->
+                <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
+                    <a class="nav-link" routerLink="risk-calculator">Risk Calculator</a>
                 </li>
                 <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
                     <a class="nav-link" href="#">Rafer a friend</a>
                 </li>
                 <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
-                    <a class="nav-link" routerLink="risk-calculator">Risk Calculator</a>
-                </li>
-                <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
-                    <a class="nav-link" routerLink='aboutus'>About Us</a>
+                    <a class="nav-link" routerLink='aboutus'>Contact Us</a>
                 </li>
                 
             </ul>

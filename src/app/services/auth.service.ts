@@ -31,7 +31,7 @@ export class AuthService {
       this.uid=res.user.uid
        localStorage.setItem("uid",res.user.uid)
        localStorage.setItem("email",res.user.email)
-       return this.db.collection("users").doc(res.user.uid).set(Object.assign({}, )).then(res=>{
+       return this.db.collection("users").doc(res.user.uid).set(Object.assign({}, profileInfo)).then(res=>{
         this.router.navigateByUrl("/dashboard")
         this.common.showToast("success","Successfull","Your Account is Successfully Created")
         return res
@@ -112,6 +112,12 @@ export class AuthService {
      }).catch(err=>{
       this.common.showToast("error","Error Occoured","Unable to perform this operation")
       return err
+     })
+   }
+
+   sendVerify(){
+     this.afAuth.currentUser.then(res=>{
+       res.sendEmailVerification()
      })
    }
 

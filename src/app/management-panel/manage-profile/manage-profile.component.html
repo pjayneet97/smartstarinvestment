@@ -1,11 +1,6 @@
 <div class="container p-0">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap border-bottom mb-3 p-3 bg-light">
         <h6>Profile</h6>
-        <div class="btn-toolbar">
-            <button type="button" class="btn-outline-custom-primary">
-                <i class="fa fa-pencil-square-o"></i> EDIT
-            </button>
-        </div>
     </div>
     
     <div *ngIf="profileInfo" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -25,24 +20,24 @@
                                 <div class="form-row mb-2">
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                         <small class="form-text text-muted h6">First Name</small>
-                                        <input type="text" class="shadow-sm" placeholder="" title="Please enter your first name" name="firstName" [(ngModel)]="profileInfo.firstName" required>
+                                        <input disabled type="text" class="shadow-sm" placeholder="" title="Please enter your first name" name="firstName" [(ngModel)]="profileInfo.firstName" required>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                         <small class="form-text text-muted h6">Last Name</small>
-                                        <input type="text" class="shadow-sm" placeholder="" title="Please enter your last name" name="lastName" [(ngModel)]="profileInfo.lastName" required>
+                                        <input disabled type="text" class="shadow-sm" placeholder="" title="Please enter your last name" name="lastName" [(ngModel)]="profileInfo.lastName" required>
                                     </div>
                                 </div>
                                 <div class="form-row my-2">
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                         <small class="form-text text-muted h6">Mobile Number</small>
-                                        <input type="text" class="shadow-sm" placeholder=""
+                                        <input disabled type="text" class="shadow-sm" placeholder=""
                                             title="Please enter your valid mobile number" name="mobile" [(ngModel)]="profileInfo.mobile" required>
                                     </div>
                                 </div>
                                 <div class="form-row my-2">
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                         <small class="form-text text-muted h6">Gender</small>
-                                        <select name="gender" [(ngModel)]="profileInfo.gender" required class="shadow-sm">
+                                        <select disabled name="gender" [(ngModel)]="profileInfo.gender" required class="shadow-sm">
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
                                             <option value="other">Other</option>
@@ -50,7 +45,7 @@
                                     </div>
                                 </div>
                                 <div class="py-3">
-                                    <button type="submit" class="save-btn">Save</button>
+                                    <!-- <button type="submit" class="save-btn">Save</button> -->
                                 </div>
                             </form>
                         </div>
