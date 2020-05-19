@@ -78,13 +78,13 @@ export class InvestmentPlansComponent implements OnInit {
    }
 
    open(content,plan) {
-/*      this.amount=null
+     this.amount=null
      this.selectedPlan=plan
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       console.log(result)
     }, (reason) => {
      console.log(reason)
-    }); */
+    });
   }
 
   private getDismissReason(reason: any): string {

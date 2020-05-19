@@ -56,7 +56,7 @@
       </form>
     </div>
     <div class="modal-footer">
-        <button (click)="proceedToPay($event)" [disabled]="!amount || (amount<selectedPlan.minimum)" type="button" class="btn-block buy-now-btn shadow-sm border-0 mx-1">Invest Now</button>
+        <button [disabled]="!amount || (amount<selectedPlan.minimum)" type="button" class="btn-block buy-now-btn shadow-sm border-0 mx-1">Invest Now</button>
     </div>
   </ng-template>
   
