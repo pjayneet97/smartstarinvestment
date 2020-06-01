@@ -3,11 +3,11 @@
     height: 45;
 }
 .nav-link{
+    font-family: "Open Sans",-apple-system-body,BlinkMacSystemFont,sans-serif!important;
     font-size: 15px;
     line-height: auto;
     margin-left: 10px;
-    font-weight: 300;
-    font-family: sans-serif;
+    font-weight: 300; 
 }
 
 .navbar-toggler:focus{
@@ -94,10 +94,15 @@
   }
   div .btn-custom-primary:hover{
     background-color: #fff;
-    color: #12003B;
+    color: #166678;
   }
 
   .header-nav-bg{
-    background-color: #12003B;
+    background-color: #166678;
     color: #fff;
+  }
+
+  .highlight{
+    color: white!important;
+    font-weight: bolder;
   }

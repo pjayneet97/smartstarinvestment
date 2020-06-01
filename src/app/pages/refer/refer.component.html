@@ -1,0 +1,30 @@
+<div class="jumbotron jumbotron-fluid border-0 m-0 ml-sm-auto row">
+    <div class="col-md-2 ml-sm-auto col-lg-4"></div>
+
+    <div class="col-md-8 ml-sm-auto col-lg-4">
+        <div class="container card bg-white border p-5 w-100 shadow">
+            <div class="center-text-div">
+                <h3 class="font-weight-normal heading">Refer A Friend</h3>
+                <hr>
+            </div>
+                <div class="form-row my-2">
+                    <div class="col">
+                        <small class="form-text text-muted h6">Email Address</small>
+                        <input type="email" class="shadow-sm" placeholder="johnwick@example.com" name="email" [(ngModel)]="email"
+                            required>
+                    </div>
+                </div>
+                <div class="py-3">
+                    <a href="mailto:{{email}}">
+                        <button type="submit" [disabled]="!email" class="btn signin-btn btn-block">Share Now</button>
+                    </a>
+                </div>
+                <small class="form-text text-muted"> <a routerLink="/auth">Sign In</a></small>
+                <small class="form-text text-muted">If you don't have an account <a routerLink="signup">Click
+                        here</a></small>
+
+        </div>
+    </div>
+
+    <div class="col-md-2 ml-sm-auto col-lg-4"></div>
+</div>

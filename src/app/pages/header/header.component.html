@@ -1,7 +1,8 @@
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg navbar-dark header-nav-bg px-3 border-bottom sticky-top py-1">
     <a class="navbar-brand" routerLink="">
-        <h5 class="font-weight-bold">Smart Star Investment</h5>
+        <h5 style="margin-bottom: 0px;" class="font-weight-bold">Smart Star Investment</h5>
+        <small style="font-size: 12px;">You Trust , We Believe</small>
     </a>
     <!-- Testing perspose -->
     <!-- <div class="p-3" *ngIf="isUser() else notUser">
@@ -46,7 +47,7 @@
         <div class="mr-auto">
             <ul class="navbar-nav">
                 <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
-                    <a class="nav-link" *ngIf="isUser()" routerLink="/dashboard">Dashboard</a>
+                    <a class="nav-link" *ngIf="isUser()"  routerLink="/dashboard" routerLinkActive="highlight">Dashboard</a>
                 </li>
 <!--                 <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
                     <a class="nav-link" routerLink="">Home</a>
@@ -55,22 +56,27 @@
                     <a class="nav-link" routerLink="">How It Works</a>
                 </li> -->
                 <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
-                    <a class="nav-link" routerLink="risk-calculator">Risk Calculator</a>
+                    <a class="nav-link" routerLink="/invest" routerLinkActive="highlight">Invest</a>
                 </li>
                 <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
-                    <a class="nav-link" href="#">Refer a friend</a>
+                    <a class="nav-link" routerLink="refer" routerLinkActive="highlight">Refer a friend</a>
                 </li>
                 <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
-                    <a class="nav-link" routerLink='aboutus'>Contact Us</a>
+                    <a class="nav-link" routerLink='/aboutus' routerLinkActive="highlight">About Us</a>
+                </li>
+                <li (click)="isMenuCollapsed = !isMenuCollapsed" class="nav-item">
+                    <a class="nav-link" routerLink='/contactus' routerLinkActive="highlight">Contact Us</a>
                 </li>
                 
             </ul>
         </div>
 
         <span class="right-nav-buttons" *ngIf="isUser() else notUserd">
-            <div class="my-2">
-                <p>{{email}}</p>
+            <div class="my-3">
+                <p><button (click)="logout()" routerLink='auth/signup' routerLinkActive="highlight"
+                    class="btn-custom-primary btn-sm mx-1 px-4 rounded-0 text-decoration-none">LogOut</button></p>
             </div>
+            
         </span>
 
         <ng-template #notUserd>
@@ -79,6 +85,7 @@
                     class="btn-custom-primary btn-sm mx-1 px-4 rounded-0 text-decoration-none">Sign In</button>
                 <button routerLink='auth/signup'
                     class="btn-custom-primary btn-sm mx-1 px-4 rounded-0 text-decoration-none">Sign Up</button>
+
             </span>
         </ng-template>
 
@@ -103,7 +110,7 @@
             <a href="payments.html"><i class="fa fa-server mr-3"></i> Payments</a>
         </li>
         <li>
-            <a href="refer-a-friend.html"><i class="fa fa-table mr-3"></i> Rafer a friend</a>
+            <a href="refer-a-friend.html"><i class="fa fa-table mr-3"></i> Refer a friend</a>
         </li>
         <li>
             <a href="#"><i class="fa fa-bar-chart mr-3"></i> Buy/Sell</a>

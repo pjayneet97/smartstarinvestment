@@ -12,12 +12,15 @@
 
          
                 <!-- Example row of columns -->
-                <div class="row">
+                <div class="row text-center">
                     <div *ngFor="let item of plans" class="col-md-4">
                         <div class="card p-3 shadow-sm my-2">
+                            <img height="200px" src="https://m.economictimes.com/thumb/msid-75243848,width-1200,height-900,resizemode-4,imgsize-481454/456.jpg" alt="">
+                            <br>
                             <h4>{{item.title}}</h4>
+                            <br>
                             <p>
-                                <button (click)="open(content,item)" type="button" class="buy-now-btn shadow-sm border-0 mx-1">View Plan Details</button>
+                                <button (click)="open(content,item)" type="button" class="buy-now-btn btn-sm shadow-sm border-0 mx-1">View Plan Details</button>
                             </p>
                         </div>
                     </div>
@@ -55,7 +58,7 @@
       </form>
     </div>
     <div class="modal-footer">
-        <button [disabled]="!amount || (amount<selectedPlan.minimum)" type="button" class="btn-block buy-now-btn shadow-sm border-0 mx-1">Invest Now</button>
+        <button (click)="proceedToPay($event)" [disabled]="!amount || (amount<selectedPlan.minimum)" type="button" class="btn-block buy-now-btn shadow-sm border-0 mx-1">Invest Now</button>
     </div>
   </ng-template>
   

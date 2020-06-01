@@ -1,1 +1,31 @@
-<p>risk-calculator works!</p>
+<div class="container">
+    <br><br>            <br><br>
+    <div class="row">
+        <div class="col-lg-6 text-muted">
+            <h2>Invesment Return Calculator</h2>
+            <br>
+            <small>Enter you Estimated Investment per Month</small>
+            <br><br>
+            <input type="number" class="shadow-sm" placeholder="5000">
+            <br><br>
+            <button class="btn signin-btn btn-block">Calculate</button>
+        </div>
+        <div class="col-lg-6">
+            <div class="flex">
+                <div class="flex-item">
+                  <div style="display: block;">
+                  <canvas baseChart width="400" height="400"
+                              [datasets]="lineChartData"
+                              [labels]="lineChartLabels"
+                              [options]="lineChartOptions"
+                              [colors]="lineChartColors"
+                              [legend]="lineChartLegend"
+                              [chartType]="lineChartType"
+                              (chartHover)="chartHovered($event)"
+                              (chartClick)="chartClicked($event)"></canvas>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

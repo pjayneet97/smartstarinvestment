@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -35,6 +36,9 @@ import { EditComponent } from './admin/home/manage-investment/edit/edit.componen
 import { AllComponent } from './admin/home/manage-investment/all/all.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { PlansComponent } from './admin/dashboard/plans/plans.component';
+import { ContactusComponent } from './pages/contactus/contactus.component';
+import { ReferComponent } from './pages/refer/refer.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -62,6 +66,8 @@ import { PlansComponent } from './admin/dashboard/plans/plans.component';
     AllComponent,
     DashboardComponent,
     PlansComponent,
+    ContactusComponent,
+    ReferComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,9 +76,11 @@ import { PlansComponent } from './admin/dashboard/plans/plans.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     FormsModule,
+    ChartsModule,
     NgxUiLoaderModule
   ],
   providers: [],

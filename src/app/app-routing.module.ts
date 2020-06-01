@@ -20,13 +20,17 @@ import { AllComponent } from './admin/home/manage-investment/all/all.component';
 import { AddComponent } from './admin/home/manage-investment/add/add.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { PlansComponent } from './admin/dashboard/plans/plans.component';
+import { ContactusComponent } from './pages/contactus/contactus.component';
+import { ReferComponent } from './pages/refer/refer.component';
 
 
 const routes: Routes = [
   {path:"",component:PagesComponent,children:[
     {path:"",component:HomeComponent},
     {path:"aboutus",component:AboutusComponent},
-    {path:"risk-calculator",component:RiskCalculatorComponent},
+    {path:"contactus",component:ContactusComponent},
+    {path:"refer",component:ReferComponent},
+    {path:"invest",component:RiskCalculatorComponent},
   ]},
   {path:"auth",component:AuthComponent,children:[
     {path:"",component:SigninComponent},
@@ -48,7 +52,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

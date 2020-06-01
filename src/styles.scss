@@ -11,6 +11,11 @@
 // should be after your bootstrap imports, it uses bs4 variables, mixins, functions 
 
 // For all Inputs, textarea and select tags these are comanaly use for more pages.
+
+::-webkit-input-placeholder { /* WebKit browsers */
+   opacity: 0.6 !important;
+}
+
 input[type=text],input[type=email],input[type=password],input[type=number],input[type=tel]{
     border: 1px solid rgb(214, 214, 214);
     width: 100%;

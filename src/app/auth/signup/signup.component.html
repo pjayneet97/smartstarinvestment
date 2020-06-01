@@ -56,8 +56,14 @@
                         </p>
                     </div>
                 </div>
-                <div class="py-3">
-                    <button type="submit" [disabled]="!signupForm.valid" class="btn signup-btn">Create Account</button>
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6">
+                        <div class="py-3">
+                            <button type="submit" [disabled]="!signupForm.valid" class="btn signup-btn btn-block">Create Account</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3"></div>
                 </div>
                 <small class="form-text text-muted">If you already an account <a routerLink="/auth">Click 
                         here</a></small>
