@@ -6,9 +6,15 @@
             <br>
             <small>Enter you Estimated Investment per Month</small>
             <br><br>
+             <!--
             <input type="number" class="shadow-sm" placeholder="5000">
             <br><br>
-            <button class="btn signin-btn btn-block">Calculate</button>
+            <button class="btn signin-btn btn-block">Calculate</button> -->
+            <mv-slider style="width: 95%;" [(value)]="value" [tooltip]="'show'" [min]="1" [max]="100" [enabled]="true" ></mv-slider>
+            <br><br>
+            <p>
+                <b>Investment Amount :AUD {{value}}</b>
+            </p>
         </div>
         <div class="col-lg-6">
             <div class="flex">

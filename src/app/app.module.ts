@@ -39,6 +39,8 @@ import { PlansComponent } from './admin/dashboard/plans/plans.component';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { ReferComponent } from './pages/refer/refer.component';
 import { ChartsModule } from 'ng2-charts';
+import { NgxBootstrapSliderModule } from 'ngx-bootstrap-slider';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -73,6 +75,7 @@ import { ChartsModule } from 'ng2-charts';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    NgxBootstrapSliderModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
@@ -81,7 +84,8 @@ import { ChartsModule } from 'ng2-charts';
     ToastrModule.forRoot(), // ToastrModule added
     FormsModule,
     ChartsModule,
-    NgxUiLoaderModule
+    NgxUiLoaderModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,14 +3,14 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { CommonService } from '../common.service';
-
+import { HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   uid=null
-  constructor(public afAuth:AngularFireAuth,public db:AngularFirestore,public router:Router,public common:CommonService) {
+  constructor(public afAuth:AngularFireAuth,public db:AngularFirestore,public router:Router,public common:CommonService,public https:HttpClient) {
     this.afAuth.authState.subscribe(res=>{
       if(res){
         this.uid=res.uid
@@ -120,6 +120,44 @@ export class AuthService {
        res.sendEmailVerification()
      })
    }
+
+   sendForm(contact){
+    let body =  `<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --- Here are details from website ---</em></p>
+    <ul>
+    <li><em> <b> Name : <\b> </em></li>` + contact.firstname +' '+ contact.lastname +
+    `<li><em> <b> Email : <\b> </em></li>` + contact.email +
+    `<li><em> <b> Number : <\b> </em></li>` + contact.number +
+    `<li><em> <b> Message : <\b> </em></li>` + contact.message +
+    `</ul><p>&nbsp; &nbsp; &nbsp;</p>`;// html can be written here
+    let  postVars = {
+      from : contact.email,
+      subject : "Website Contact Form Filled",
+      html : body,
+      dest : 'porwaljayneet97@gmail.com'
+      //number : contact.number,
+    };
+    this.https.post('https://us-central1-smartstarinvestments.cloudfunctions.net/sendMail', postVars).subscribe(res=>{
+      console.log(res)
+      }
+    )
+
+  }
+
+  sendRefer(email){
+    let body = `Please signup to Smart Star Investment using the refer link https://smartstarinvestment.web.app and start getting maximum returns on your investments`
+    let  postVars = {
+      from : "website.smartstarinvestment@gmail.com",
+      subject : "You are referred Smart Star Investment",
+      html : body,
+      dest : email
+      //number : contact.number,
+    };
+    this.https.post('https://us-central1-smartstarinvestments.cloudfunctions.net/sendMail', postVars).subscribe(res=>{
+      console.log(res)
+      }
+    )
+
+  }
 
 
 }

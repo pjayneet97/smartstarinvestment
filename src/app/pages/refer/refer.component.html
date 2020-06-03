@@ -15,8 +15,8 @@
                     </div>
                 </div>
                 <div class="py-3">
-                    <a href="mailto:{{email}}">
-                        <button type="submit" [disabled]="!email" class="btn signin-btn btn-block">Share Now</button>
+                    <a>
+                        <button (click)="sendRefer()" type="submit" [disabled]="!email" class="btn signin-btn btn-block">Share Now</button>
                     </a>
                 </div>
                 <small class="form-text text-muted"> <a routerLink="/auth">Sign In</a></small>

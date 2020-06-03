@@ -4,36 +4,42 @@
             <h3 class="font-weight-normal heading">Contact Us</h3>
             <hr>
         </div>
-        <form>
+        <form (ngSubmit)="sendEmail(contact)" #contact="ngForm" >
             <div class="form-row my-2">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <small id="fnameHelp" class="form-text text-muted">First Name*</small>
-                    <input type="text" class="shadow-sm" placeholder="" title="Please enter your first name">
+                    <input type="text" class="shadow-sm" placeholder="" title="Please enter your first name" name="firstname" ngModel required>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <small id="lnameHelp" class="form-text text-muted">Last Name</small>
-                    <input type="text" class="shadow-sm" placeholder="" title="Please enter your last name">
+                    <input type="text" class="shadow-sm" placeholder="" title="Please enter your last name" name="lastname" ngModel required>
                 </div>
             </div>
             <div class="form-row my-2">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <small id="emailHelp" class="form-text text-muted">Email Address*</small>
-                    <input type="email" class="shadow-sm" placeholder="" title="Please enter your email address">
+                    <input type="email" class="shadow-sm" placeholder="" title="Please enter your email address" name="email" ngModel required>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <small id="mobileHelp" class="form-text text-muted">Mobile Number*</small>
-                    <input type="text" class="shadow-sm" placeholder=""
+                    <input type="text" class="shadow-sm" placeholder="" name="number" ngModel required
                         title="Please enter your valid mobile number">
                 </div>
             </div>
             <div class="form-row my-2">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <small id="passwordHelp" class="form-text text-muted">Message</small>
-                    <textarea class="shadow-sm" id="exampleFormControlTextarea1" rows="4"></textarea>
+                    <textarea class="shadow-sm" id="exampleFormControlTextarea1" rows="4" name="message" ngModel required></textarea>
                 </div>
             </div>
-            <div class="py-4 text-center">
-                <button class="btn btn-success contact-send-btn">Send</button>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <div class="py-4 text-center">
+                        <button [disabled]="!contact.valid" type="submit" class="btn signin-btn btn-block">Send</button>
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>
             </div>
         </form>
     </div>

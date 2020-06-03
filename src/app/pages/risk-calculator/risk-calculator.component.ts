@@ -12,6 +12,7 @@ export class RiskCalculatorComponent implements OnInit {
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'FD' },
     { data: [28, 48, 40, 19, 86, 27, 90], label: 'MICRO INVESTMENT' },
   ];
+  value=20
   public lineChartLabels: Label[] = ['2020', '2021', '2022', '2023', '2024', '2025', '2026'];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     responsive: true,
