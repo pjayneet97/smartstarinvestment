@@ -47,7 +47,7 @@ export class InvestmentPlansComponent implements OnInit {
 
    preparePaymentDetails(){
     return  {
-      "key": "rzp_test_qXocOi92VpABBZ", // Enter the Key ID generated from the Dashboard
+      "key": "rzp_test_vWdiucJJ8fl9fx", // Enter the Key ID generated from the Dashboard
       "amount": this.amount*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       "currency": "INR",
       "name": "Smart Star Investment",

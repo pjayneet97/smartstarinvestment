@@ -133,7 +133,7 @@ export class AuthService {
       from : contact.email,
       subject : "Website Contact Form Filled",
       html : body,
-      dest : 'porwaljayneet97@gmail.com'
+      dest : 'smartstarinvestment@gmail.com'
       //number : contact.number,
     };
     this.https.post('https://us-central1-smartstarinvestments.cloudfunctions.net/sendMail', postVars).subscribe(res=>{
